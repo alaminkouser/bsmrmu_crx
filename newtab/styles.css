@@ -1,0 +1,25 @@
+* {
+    background-color: black;
+    color: white;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    outline: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family: monospace;
+    text-decoration: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.HEADER>.SPOTLIGHT>ol>li {
+    font-size: 2em;
+    text-align: center;
+}
+.HEADER>.SPOTLIGHT>ol>li>a:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
