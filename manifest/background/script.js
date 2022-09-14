@@ -15,10 +15,8 @@ function bsmrmuSetNewTabData() {
         fetch("https://bsmrmu.edu.bd/notices/General%20Notice").then(function(value) {return value.text()}),
         fetch("https://bsmrmu.edu.bd/notices/Academic%20Notice").then(function(value) {return value.text()})
     ]).then(function(value) {
-        chrome.runtime.sendMessage(value, function(response) {
-            console.log(response);
-        });
+        chrome.runtime.sendMessage(value, function(_) {});
     }).catch(function() {
-        return false;
+        chrome.runtime.sendMessage(false, function(_) {});
     })
 }
