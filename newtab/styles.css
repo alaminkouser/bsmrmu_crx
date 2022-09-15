@@ -23,6 +23,10 @@ li::before {
     color: rgba(255, 255, 255, 0.5);
 }
 
+a:visited:not(.HIGHLIGHT-TEXT-RED) {
+    color: rgb(177, 177, 177);
+}
+
 .HIGHLIGHT-TEXT-RED {
     color: rgb(255, 100, 100);
 }
