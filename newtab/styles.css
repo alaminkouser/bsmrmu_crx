@@ -10,6 +10,7 @@
     font-family: monospace;
     text-decoration: none;
     list-style: none;
+    vertical-align: top;
 }
 
 *::-webkit-scrollbar {
@@ -23,6 +24,10 @@ li::before {
 
 .HIGHLIGHT-TEXT-RED {
     color: rgb(255, 100, 100);
+}
+
+h1 {
+    text-align: center;
 }
 
 /* -------- */
@@ -41,4 +46,15 @@ li::before {
 .BODY>.NOTICE>.ACADEMIC {
     display: inline-block;
     width: 50%;
+}
+
+.BODY>.NOTICE>.GENERAL>ul>li,
+.BODY>.NOTICE>.ACADEMIC>ul>li {
+    font-size: 1.5em;
+}
+
+.BODY>.NOTICE>.GENERAL>ul>li>a:hover,
+.BODY>.NOTICE>.ACADEMIC>ul>li>a:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 }
