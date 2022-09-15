@@ -8,6 +8,9 @@ function updateData() {
         let a = window.document.createElement("a");
         let newItem = document.createElement("li");
         a.textContent = spotlight[i][0];
+        if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
+            a.classList.add("HIGHLIGHT-TEXT-RED");
+        }
         a.setAttribute("href", spotlight[i][1]);
         a.setAttribute("target", "_blank");
         newItem.appendChild(a);
