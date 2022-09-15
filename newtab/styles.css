@@ -33,6 +33,8 @@ a:visited:not(.HIGHLIGHT-TEXT-RED) {
 
 h1 {
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 body>.MESSAGE {
