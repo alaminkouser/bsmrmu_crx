@@ -58,8 +58,12 @@ if (window.localStorage.getItem("bsmrmuNewTabData") !== null) {
     updateData();
 }
 bsmrmuSetNewTabData();
+setInterval(function() {
+    bsmrmuSetNewTabData();
+}, 300000);
 
 function bsmrmuSetNewTabData() {
+    message("UPDATING");
     const bsmrmuNewTabData = {
         "spotlight": [],
         "general_notice": [],
