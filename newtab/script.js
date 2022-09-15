@@ -5,49 +5,53 @@ function updateData() {
     window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("GENERAL")[0].getElementsByTagName("ul")[0].innerHTML = "";
     window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("ACADEMIC")[0].getElementsByTagName("ul")[0].innerHTML = "";
 
-    const spotlight = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).spotlight;
-    for (let i = 0; i < spotlight.length; i++) {
-        let list = window.document.getElementsByClassName("HEADER")[0].getElementsByClassName("SPOTLIGHT")[0].getElementsByTagName("ul")[0];
-        let a = window.document.createElement("a");
-        let newItem = document.createElement("li");
-        a.textContent = spotlight[i][0];
-        if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
-            a.classList.add("HIGHLIGHT-TEXT-RED");
+    try {
+        const spotlight = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).spotlight;
+        for (let i = 0; i < spotlight.length; i++) {
+            let list = window.document.getElementsByClassName("HEADER")[0].getElementsByClassName("SPOTLIGHT")[0].getElementsByTagName("ul")[0];
+            let a = window.document.createElement("a");
+            let newItem = document.createElement("li");
+            a.textContent = spotlight[i][0];
+            if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
+                a.classList.add("HIGHLIGHT-TEXT-RED");
+            }
+            a.setAttribute("href", spotlight[i][1]);
+            a.setAttribute("target", "_blank");
+            newItem.appendChild(a);
+            list.appendChild(newItem);
         }
-        a.setAttribute("href", spotlight[i][1]);
-        a.setAttribute("target", "_blank");
-        newItem.appendChild(a);
-        list.appendChild(newItem);
-    }
 
-    const general_notice = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).general_notice;
-    for (let i = 0; i < general_notice.length; i++) {
-        let list = window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("GENERAL")[0].getElementsByTagName("ul")[0];
-        let a = window.document.createElement("a");
-        let newItem = document.createElement("li");
-        a.textContent = general_notice[i][0];
-        if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
-            a.classList.add("HIGHLIGHT-TEXT-RED");
+        const general_notice = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).general_notice;
+        for (let i = 0; i < general_notice.length; i++) {
+            let list = window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("GENERAL")[0].getElementsByTagName("ul")[0];
+            let a = window.document.createElement("a");
+            let newItem = document.createElement("li");
+            a.textContent = general_notice[i][0];
+            if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
+                a.classList.add("HIGHLIGHT-TEXT-RED");
+            }
+            a.setAttribute("href", general_notice[i][3]);
+            a.setAttribute("target", "_blank");
+            newItem.appendChild(a);
+            list.appendChild(newItem);
         }
-        a.setAttribute("href", general_notice[i][3]);
-        a.setAttribute("target", "_blank");
-        newItem.appendChild(a);
-        list.appendChild(newItem);
-    }
 
-    const academic_notice = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).academic_notice;
-    for (let i = 0; i < academic_notice.length; i++) {
-        let list = window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("ACADEMIC")[0].getElementsByTagName("ul")[0];
-        let a = window.document.createElement("a");
-        let newItem = document.createElement("li");
-        a.textContent = academic_notice[i][0];
-        if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
-            a.classList.add("HIGHLIGHT-TEXT-RED");
+        const academic_notice = JSON.parse(window.localStorage.getItem("bsmrmuNewTabData")).academic_notice;
+        for (let i = 0; i < academic_notice.length; i++) {
+            let list = window.document.getElementsByClassName("BODY")[0].getElementsByClassName("NOTICE")[0].getElementsByClassName("ACADEMIC")[0].getElementsByTagName("ul")[0];
+            let a = window.document.createElement("a");
+            let newItem = document.createElement("li");
+            a.textContent = academic_notice[i][0];
+            if (a.textContent.toLowerCase().includes("exam") || a.textContent.toLowerCase().includes("পরীক্ষা") || a.textContent.toLowerCase().includes("জরুরী")) {
+                a.classList.add("HIGHLIGHT-TEXT-RED");
+            }
+            a.setAttribute("href", academic_notice[i][3]);
+            a.setAttribute("target", "_blank");
+            newItem.appendChild(a);
+            list.appendChild(newItem);
         }
-        a.setAttribute("href", academic_notice[i][3]);
-        a.setAttribute("target", "_blank");
-        newItem.appendChild(a);
-        list.appendChild(newItem);
+    } catch(_) {
+        error();
     }
 }
 if (window.localStorage.getItem("bsmrmuNewTabData") !== null) {
@@ -101,8 +105,14 @@ function bsmrmuSetNewTabData() {
             }
             window.localStorage.setItem("bsmrmuNewTabData", JSON.stringify(bsmrmuNewTabData));
             updateData();
+        } else {
+            error();
         }
     }).catch(function () {
-        console.error("function: bsmrmuSetNewTabData()");
+        error();
     })
+}
+
+function error() {
+    window.document.getElementsByClassName("ERROR")[0].innerText = "SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.";
 }
