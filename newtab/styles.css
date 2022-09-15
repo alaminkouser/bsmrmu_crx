@@ -56,6 +56,73 @@ body>.MESSAGE {
     }
 }
 
+#SNACKBAR {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    padding: 16px;
+    z-index: 1;
+    bottom: 30px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+}
+
+#SNACKBAR.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
 /* -------- */
 
 .HEADER>.SPOTLIGHT>ul>li {

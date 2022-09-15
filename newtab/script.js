@@ -50,7 +50,7 @@ function updateData() {
             newItem.appendChild(a);
             list.appendChild(newItem);
         }
-    } catch(_) {
+    } catch (_) {
         message("SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.");
     }
 }
@@ -58,12 +58,12 @@ if (window.localStorage.getItem("bsmrmuNewTabData") !== null) {
     updateData();
 }
 bsmrmuSetNewTabData();
-setInterval(function() {
+setInterval(function () {
     bsmrmuSetNewTabData();
 }, 300000);
 
 function bsmrmuSetNewTabData() {
-    message("UPDATING");
+    snackbar("UPDATING");
     const bsmrmuNewTabData = {
         "spotlight": [],
         "general_notice": [],
@@ -120,4 +120,11 @@ function bsmrmuSetNewTabData() {
 
 function message(text) {
     window.document.getElementsByClassName("MESSAGE")[0].innerText = text;
+}
+
+function snackbar(text) {
+    let x = document.getElementById("SNACKBAR");
+    x.innerText = text;
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
