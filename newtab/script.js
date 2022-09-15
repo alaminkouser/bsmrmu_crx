@@ -51,7 +51,7 @@ function updateData() {
             list.appendChild(newItem);
         }
     } catch(_) {
-        error();
+        message("SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.");
     }
 }
 if (window.localStorage.getItem("bsmrmuNewTabData") !== null) {
@@ -105,14 +105,15 @@ function bsmrmuSetNewTabData() {
             }
             window.localStorage.setItem("bsmrmuNewTabData", JSON.stringify(bsmrmuNewTabData));
             updateData();
+            message("");
         } else {
-            error();
+            message("SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.");
         }
     }).catch(function () {
-        error();
+        message("SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.");
     })
 }
 
-function error() {
-    window.document.getElementsByClassName("ERROR")[0].innerText = "SOMETHING WENT WRONG! PLEASE UPDATE THE EXTENSION OR CHECK YOUR INTERNET CONNECTION.";
+function message(text) {
+    window.document.getElementsByClassName("MESSAGE")[0].innerText = text;
 }

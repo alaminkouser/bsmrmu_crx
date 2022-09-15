@@ -30,14 +30,14 @@ h1 {
     text-align: center;
 }
 
-body>.ERROR {
+body>.MESSAGE {
     color: rgb(255, 255, 255);
     text-align: center;
     font-size: 2em;
-    animation: errorBlinker 5s infinite;
+    animation: messageBlinker 5s infinite;
 }
 
-@keyframes errorBlinker {
+@keyframes messageBlinker {
     0% {
         background-color: rgb(255, 0, 0);
     }
