@@ -19,6 +19,16 @@
       "192": "manifest/icons/192.png",
       "512": "manifest/icons/512.png"
     },
+    "action": {
+      "default_title": "BSMRMU CRX",
+      "default_popup": "popup/index.html",
+      "default_icon": {
+        "16": "manifest/icons/16.png",
+        "32": "manifest/icons/32.png",
+        "192": "manifest/icons/192.png",
+        "512": "manifest/icons/512.png"
+      }
+    },
     "chrome_url_overrides": {
       "newtab": "newtab/index.html"
     }
