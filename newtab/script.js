@@ -35,6 +35,8 @@ function bsmrmuSetNewTabData() {
     ]).then(function (value) {
         if (!value.includes(false)) {
             const parser = new DOMParser();
+
+            // spotlight
             const doc0 = parser.parseFromString(value[0], "text/html").getElementById("carouselExampleIndicators").getElementsByClassName("carousel-inner")[0].getElementsByTagName("a");
             for (let i = 0; i < doc0.length; i++) {
                 bsmrmuNewTabData.spotlight.push([
@@ -42,6 +44,29 @@ function bsmrmuSetNewTabData() {
                     doc0[i].href
                 ])
             }
+
+            // general_notice
+            const doc1 = parser.parseFromString(value[1], "text/html").getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+            for (let i = 0; i < doc1.length; i++) {
+                bsmrmuNewTabData.general_notice.push([
+                    doc1[i].getElementsByTagName("td")[1].innerText.trim(),
+                    doc1[i].getElementsByTagName("td")[2].innerText.trim(),
+                    doc1[i].getElementsByTagName("td")[3].innerText.trim(),
+                    doc1[i].getElementsByTagName("td")[4].getElementsByTagName("a")[0].href
+                ])
+            }
+
+            // general_notice
+            const doc2 = parser.parseFromString(value[2], "text/html").getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+            for (let i = 0; i < doc2.length; i++) {
+                bsmrmuNewTabData.academic_notice.push([
+                    doc2[i].getElementsByTagName("td")[1].innerText.trim(),
+                    doc2[i].getElementsByTagName("td")[2].innerText.trim(),
+                    doc2[i].getElementsByTagName("td")[3].innerText.trim(),
+                    doc2[i].getElementsByTagName("td")[4].getElementsByTagName("a")[0].href
+                ])
+            }
+            console.log(bsmrmuNewTabData);
             window.localStorage.setItem("bsmrmuNewTabData", JSON.stringify(bsmrmuNewTabData));
             updateData();
         }
