@@ -123,8 +123,9 @@ function message(text) {
 }
 
 function snackbar(text) {
-    let x = document.getElementById("SNACKBAR");
+    let x = document.getElementsByClassName("SNACKBAR")[0];
     x.innerText = text;
-    x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+    x.classList.remove("SNACKBARshow");
+    x.classList.add("SNACKBARshow");
+    setTimeout(function () { x.classList.remove("SNACKBARshow"); }, 3000);
 }

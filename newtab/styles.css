@@ -20,7 +20,7 @@
 
 li::before {
     content: "⬤ ";
-    color: rgba(255, 255, 255, 0.5);
+    color: rgb(255, 255, 255);
 }
 
 a:visited:not(.HIGHLIGHT-TEXT-RED) {
@@ -56,10 +56,11 @@ body>.MESSAGE {
     }
 }
 
-#SNACKBAR {
+div.SNACKBAR {
     visibility: hidden;
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(51, 51, 51, 0.5);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
     padding: 16px;
     z-index: 1;
     bottom: 30px;
@@ -69,7 +70,7 @@ body>.MESSAGE {
     font-size: 2em;
 }
 
-#SNACKBAR.show {
+div.SNACKBAR.SNACKBARshow {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
