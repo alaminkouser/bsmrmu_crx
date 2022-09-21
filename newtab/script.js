@@ -32,6 +32,7 @@ function updateData() {
             }
             a.setAttribute("href", general_notice[i][3]);
             a.setAttribute("target", "_blank");
+            a.setAttribute("title", general_notice[i][1] + " " + general_notice[i][2]);
             newItem.appendChild(a);
             list.appendChild(newItem);
         }
@@ -47,6 +48,7 @@ function updateData() {
             }
             a.setAttribute("href", academic_notice[i][3]);
             a.setAttribute("target", "_blank");
+            a.setAttribute("title", academic_notice[i][1] + " " + academic_notice[i][2]);
             newItem.appendChild(a);
             list.appendChild(newItem);
         }
