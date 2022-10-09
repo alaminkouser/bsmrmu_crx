@@ -23,8 +23,5 @@
       "192": "manifest/icons/192.png",
       "512": "manifest/icons/512.png"
     }
-  },
-  "chrome_url_overrides": {
-    "newtab": "newtab/index.html"
   }
 }
